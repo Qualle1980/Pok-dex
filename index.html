@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex</title>
+    <link rel="icon" href="assets/icons/favicon.svg" />
+    <link rel="stylesheet" href="standard.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="colors.css" />
+    <link rel="stylesheet" href="mobile.css" />
+    <script src="script/data.js" defer></script>
+    <script src="script/templates.js" defer></script>
+    <script src="script/api.js" defer></script>
+    <script src="script/search.js" defer></script>
+    <script src="script/dialog.js" defer></script>
+    <script src="script/app.js" defer></script>
+  </head>
+
+  <body onload="init()">
+    <header>
+      <div class="headerContent">
+        <div class="brand">
+          <img class="logo" src="assets/icons/favicon.svg" alt="Pokédex logo" />
+          <h1>Pokédex</h1>
+        </div>
+
+        <div class="search">
+          <input
+            id="searchInput"
+            data-id="search-input"
+            type="text"
+            placeholder="Search Pokémon"
+            oninput="checkSearch()"
+            onkeydown="searchWithEnter(event)"
+          />
+          <button
+            id="searchButton"
+            data-id="search-button"
+            onclick="searchPokemon()"
+            disabled
+          >
+            &#128269;
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main data-id="content">
+      <div id="loadingScreen" class="loadingScreen">
+        <div class="spinner"></div>
+        <p>Loading Pokémon...</p>
+      </div>
+
+      <div id="pokemonContent" class="pokemonContent"></div>
+
+      <button
+        id="loadMoreButton"
+        class="loadMoreButton"
+        data-id="load-more-button"
+        onclick="loadMorePokemon()"
+      >
+        Load more
+      </button>
+    </main>
+
+    <dialog
+      id="pokemonDialog"
+      data-id="dialog"
+      onclick="closeDialogOutside(event)"
+      onclose="unlockPage()"
+    >
+      <div id="dialogContent"></div>
+    </dialog>
+
+    <footer>
+      <p>Data from PokéAPI</p>
+    </footer>
+  </body>
+</html>

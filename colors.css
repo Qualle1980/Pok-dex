@@ -1,0 +1,72 @@
+/* Pokemon type background colors */
+.normal {
+  background-color: #a8a878;
+}
+
+.fire {
+  background-color: #f08030;
+}
+
+.water {
+  background-color: #6890f0;
+}
+
+.electric {
+  background-color: #d8b520;
+}
+
+.grass {
+  background-color: #78c850;
+}
+
+.ice {
+  background-color: #98d8d8;
+}
+
+.fighting {
+  background-color: #c03028;
+}
+
+.poison {
+  background-color: #a040a0;
+}
+
+.ground {
+  background-color: #c9a94f;
+}
+
+.flying {
+  background-color: #8c78c5;
+}
+
+.psychic {
+  background-color: #f85888;
+}
+
+.bug {
+  background-color: #a8b820;
+}
+
+.rock {
+  background-color: #b8a038;
+}
+
+.ghost {
+  background-color: #705898;
+}
+
+.dragon {
+  background-color: #7038f8;
+}
+
+.dark {
+  background-color: #705848;
+}
+
+.steel {
+  background-color: #8f8fa8;
+}
+
+.fairy {
+  background-color: #ee99ac;
+}
