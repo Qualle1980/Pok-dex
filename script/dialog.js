@@ -1,3 +1,5 @@
+//#region Dialog Setup
+
 /* Opens one Pokemon card in the dialog. */
 function openDialog(index) {
   currentDialogIndex = index;
@@ -12,6 +14,10 @@ function renderDialog() {
   document.getElementById("dialogContent").innerHTML = dialogTemplate(pokemon);
   showDialogTab(currentDialogTab);
 }
+
+//#endregion
+
+//#region Dialog Tabs
 
 function showDialogTab(tab) {
   currentDialogTab = tab;
@@ -50,6 +56,10 @@ function showStatsTab() {
   `;
 }
 
+//#endregion
+
+//#region Evolution Tab
+
 /* Loads the evolution when the tab is opened. */
 async function showEvolutionTab() {
   let pokemon = currentPokemon[currentDialogIndex];
@@ -85,6 +95,10 @@ function showEvolutionError() {
   `;
 }
 
+//#endregion
+
+//#region Dialog Navigation
+
 function showPreviousPokemon() {
   currentDialogIndex--;
   if (currentDialogIndex < 0) {
@@ -103,6 +117,10 @@ function showNextPokemon() {
   renderDialog();
 }
 
+//#endregion
+
+//#region Dialog Closing
+
 function closeDialog() {
   document.getElementById("pokemonDialog").close();
 }
@@ -116,3 +134,5 @@ function closeDialogOutside(event) {
     closeDialog();
   }
 }
+
+//#endregion

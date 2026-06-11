@@ -34,21 +34,33 @@ function getImage(pokemon) {
   return image;
 }
 
+
+
+
 async function loadMorePokemon() {
   await loadPokemon();
 }
+
+
 
 function showLoadingSpinner() {
   document.getElementById("loadingScreen").style.display = "flex";
 }
 
+
+
+
 function hideLoadingSpinner() {
   document.getElementById("loadingScreen").style.display = "none";
 }
 
+
+
 function disableLoadButton(disabled) {
   document.getElementById("loadMoreButton").disabled = disabled;
 }
+
+
 
 function showError() {
   document.getElementById("pokemonContent").innerHTML = `

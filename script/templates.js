@@ -1,3 +1,5 @@
+//#region Pokemon Card Templates
+
 /* HTML for one Pokemon card. */
 function pokemonCardTemplate(pokemon, index) {
   let type = pokemon.types[0].type.name;
@@ -29,6 +31,10 @@ function typeTemplate(pokemon) {
   }
   return html;
 }
+
+//#endregion
+
+//#region Dialog Base Templates
 
 /* HTML for the detail view. */
 function dialogTemplate(pokemon) {
@@ -71,6 +77,10 @@ function dialogTabsTemplate() {
     </div>
   `;
 }
+
+//#endregion
+
+//#region Dialog Content Templates
 
 function mainTabTemplate(pokemon) {
   return `
@@ -124,6 +134,10 @@ function evolutionTemplate(pokemon) {
   `;
 }
 
+//#endregion
+
+//#region Dialog Navigation Template
+
 function dialogNavigationTemplate() {
   return `
     <div class="dialogNavigation">
@@ -132,3 +146,5 @@ function dialogNavigationTemplate() {
     </div>
   `;
 }
+
+//#endregion
