@@ -388,3 +388,6 @@ footer {
   text-align: center;
   background-color: #0b2d38;
 }
+footer p + p {
+  margin-top: 8px;
+}
