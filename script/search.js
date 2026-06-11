@@ -41,7 +41,7 @@ function renderSearchResult() {
 
 
 function showNotFound() {
-  document.getElementById("pokemonContent").innerHTML = `
+  document.getElementById("pokemonContent").innerHTML = /*html*/ `
     <p class="notFound" data-id="not-found">No Pokémon found.</p>
   `;
 }

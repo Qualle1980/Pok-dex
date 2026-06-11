@@ -63,7 +63,7 @@ function disableLoadButton(disabled) {
 
 
 function showError() {
-  document.getElementById("pokemonContent").innerHTML = `
+  document.getElementById("pokemonContent").innerHTML = /*html*/ `
     <p class="notFound">Pokémon could not be loaded.</p>
   `;
 }

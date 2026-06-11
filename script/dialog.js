@@ -51,7 +51,7 @@ function showMainTab() {
 
 function showStatsTab() {
   let pokemon = currentPokemon[currentDialogIndex];
-  document.getElementById("dialogTabContent").innerHTML = `
+  document.getElementById("dialogTabContent").innerHTML = /*html*/ `
     <div class="stats">${statsTemplate(pokemon)}</div>
   `;
 }
@@ -73,7 +73,7 @@ async function showEvolutionTab() {
 }
 
 function showEvolutionLoading() {
-  document.getElementById("dialogTabContent").innerHTML = `
+  document.getElementById("dialogTabContent").innerHTML = /*html*/ `
     <p class="tabMessage">Loading evolution...</p>
   `;
 }
@@ -83,14 +83,15 @@ function renderEvolution(evolution) {
   for (let i = 0; i < evolution.length; i++) {
     html += evolutionTemplate(evolution[i]);
     if (i < evolution.length - 1) {
-      html += `<span class="evolutionArrow">»</span>`;
+      html += /*html*/ `<span class="evolutionArrow">»</span>`;
     }
   }
-  document.getElementById("dialogTabContent").innerHTML = `<div class="evolution">${html}</div>`;
+  document.getElementById("dialogTabContent").innerHTML =
+    /*html*/ `<div class="evolution">${html}</div>`;
 }
 
 function showEvolutionError() {
-  document.getElementById("dialogTabContent").innerHTML = `
+  document.getElementById("dialogTabContent").innerHTML = /*html*/ `
     <p class="tabMessage">Evolution could not be loaded.</p>
   `;
 }

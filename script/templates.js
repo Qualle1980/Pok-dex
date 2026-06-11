@@ -4,7 +4,7 @@
 /* HTML for one Pokemon card */
 function pokemonCardTemplate(pokemon, index) {
   let type = pokemon.types[0].type.name;
-  return `
+  return /*html*/ `
     <button class="pokemonCard ${type}" data-id="card" onclick="openDialog(${index})">
       ${cardHeaderTemplate(pokemon)}
       <img class="pokemonImage" data-id="card-image" src="${getImage(pokemon)}" alt="${pokemon.name}">
@@ -14,7 +14,7 @@ function pokemonCardTemplate(pokemon, index) {
 }
 
 function cardHeaderTemplate(pokemon) {
-  return `
+  return /*html*/ `
     <div class="cardHeader">
       <span>#${pokemon.id}</span>
       <h2>${pokemon.name}</h2>
@@ -26,7 +26,7 @@ function typeTemplate(pokemon) {
   let html = "";
   for (let i = 0; i < pokemon.types.length; i++) {
     let type = pokemon.types[i].type.name;
-    html += `<span class="typeIcon ${type}" title="${type}">
+    html += /*html*/ `<span class="typeIcon ${type}" title="${type}">
       <img src="assets/icons/types/${type}.svg" alt="${type}">
     </span>`;
   }
@@ -40,7 +40,7 @@ function typeTemplate(pokemon) {
 /* HTML for the detail  */
 function dialogTemplate(pokemon) {
   let type = pokemon.types[0].type.name;
-  return `
+  return /*html*/ `
     <div class="${type}" data-id="overlay-pokemon-name">
       ${dialogHeaderTemplate(pokemon)}
       ${dialogImageTemplate(pokemon)}
@@ -52,7 +52,7 @@ function dialogTemplate(pokemon) {
 }
 
 function dialogHeaderTemplate(pokemon) {
-  return `
+  return /*html*/ `
     <div class="dialogHeader">
       <h2>#${pokemon.id} ${pokemon.name}</h2>
       <button class="closeButton" data-id="close-dialog-button" onclick="closeDialog()">×</button>
@@ -61,7 +61,7 @@ function dialogHeaderTemplate(pokemon) {
 }
 
 function dialogImageTemplate(pokemon) {
-  return `
+  return /*html*/ `
     <div class="dialogImageBox">
       <img class="dialogImage" data-id="dialog-image" src="${getImage(pokemon)}" alt="${pokemon.name}">
     </div>
@@ -70,7 +70,7 @@ function dialogImageTemplate(pokemon) {
 }
 
 function dialogTabsTemplate() {
-  return `
+  return /*html*/ `
     <div class="dialogTabs">
       <button id="mainTab" onclick="showDialogTab('main')">main</button>
       <button id="statsTab" onclick="showDialogTab('stats')">stats</button>
@@ -84,7 +84,7 @@ function dialogTabsTemplate() {
 //#region Dialog Content Templates
 
 function mainTabTemplate(pokemon) {
-  return `
+  return /*html*/ `
     <div class="mainInfo">
       <p><span>Height</span><strong>${pokemon.height / 10} m</strong></p>
       <p><span>Weight</span><strong>${pokemon.weight / 10} kg</strong></p>
@@ -117,7 +117,7 @@ function statTemplate(stat) {
   if (width > 100) {
     width = 100;
   }
-  return `
+  return /*html*/ `
     <div class="stat">
       <span>${stat.stat.name}</span>
       <div class="statBar"><div style="width: ${width}%"></div></div>
@@ -127,7 +127,7 @@ function statTemplate(stat) {
 }
 
 function evolutionTemplate(pokemon) {
-  return `
+  return /*html*/ `
     <div class="evolutionPokemon">
       <img src="${getImage(pokemon)}" alt="${pokemon.name}">
       <span>${pokemon.name}</span>
@@ -140,7 +140,7 @@ function evolutionTemplate(pokemon) {
 //#region Dialog Navigation Template
 
 function dialogNavigationTemplate() {
-  return `
+  return /*html*/ `
     <div class="dialogNavigation">
       <button data-id="prev-button" onclick="showPreviousPokemon()">← Previous</button>
       <button data-id="next-button" onclick="showNextPokemon()">Next →</button>
