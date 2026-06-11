@@ -1,6 +1,6 @@
 //#region Dialog Setup
 
-/* Opens one Pokemon card in the dialog. */
+/* Opens one Pokemon card in the dialog */
 function openDialog(index) {
   currentDialogIndex = index;
   currentDialogTab = "main";
@@ -60,7 +60,7 @@ function showStatsTab() {
 
 //#region Evolution Tab
 
-/* Loads the evolution when the tab is opened. */
+/* Loads the evolution when the tab is opened */
 async function showEvolutionTab() {
   let pokemon = currentPokemon[currentDialogIndex];
   showEvolutionLoading();

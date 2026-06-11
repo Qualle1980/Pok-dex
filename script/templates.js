@@ -1,6 +1,7 @@
 //#region Pokemon Card Templates
 
-/* HTML for one Pokemon card. */
+
+/* HTML for one Pokemon card */
 function pokemonCardTemplate(pokemon, index) {
   let type = pokemon.types[0].type.name;
   return `
@@ -36,7 +37,7 @@ function typeTemplate(pokemon) {
 
 //#region Dialog Base Templates
 
-/* HTML for the detail view. */
+/* HTML for the detail  */
 function dialogTemplate(pokemon) {
   let type = pokemon.types[0].type.name;
   return `

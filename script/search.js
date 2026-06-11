@@ -7,6 +7,8 @@ function checkSearch() {
   }
 }
 
+
+
 function searchWithEnter(event) {
   let searchWord = document.getElementById("searchInput").value;
   if (event.key == "Enter" && searchWord.length >= 3) {
@@ -14,7 +16,8 @@ function searchWithEnter(event) {
   }
 }
 
-/* Filters Pokemon by name. */
+
+/* Filter Pokemon by name */
 function searchPokemon() {
   let searchWord = document.getElementById("searchInput").value.toLowerCase();
   currentPokemon = allPokemon.filter(function (pokemon) {
@@ -23,6 +26,9 @@ function searchPokemon() {
   renderSearchResult();
 }
 
+
+
+
 function renderSearchResult() {
   if (currentPokemon.length == 0) {
     showNotFound();
@@ -30,6 +36,9 @@ function renderSearchResult() {
     renderPokemon();
   }
 }
+
+
+
 
 function showNotFound() {
   document.getElementById("pokemonContent").innerHTML = `

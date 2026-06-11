@@ -2,7 +2,7 @@ async function init() {
   await loadPokemon();
 }
 
-/* Loads and shows the Pokemon. */
+/* Loads and shows the Pokemon */
 async function loadPokemon() {
   showLoadingSpinner();
   disableLoadButton(true);
@@ -17,7 +17,7 @@ async function loadPokemon() {
   disableLoadButton(false);
 }
 
-/* Shows all loaded Pokemon cards. */
+/* Shows all loaded Pokemon card */
 function renderPokemon() {
   let content = document.getElementById("pokemonContent");
   content.innerHTML = "";

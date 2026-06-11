@@ -1,4 +1,4 @@
-/* Loads Pokemon from API. */
+/* Load Pokemon from API */
 async function fetchPokemon() {
   let lastPokemonId = nextPokemonId + pokemonAmount;
   for (let id = nextPokemonId; id < lastPokemonId; id++) {
@@ -15,7 +15,9 @@ async function fetchJson(url) {
   return data;
 }
 
-/* Loads the evolution chain and saves it. */
+
+
+/* Load the evolution chain and saves it */
 async function getEvolution(pokemon) {
   if (evolutionCache[pokemon.name]) {
     return evolutionCache[pokemon.name];
@@ -27,6 +29,7 @@ async function getEvolution(pokemon) {
   return evolution;
 }
 
+
 async function buildEvolution(chain) {
   let evolution = [];
   let currentStep = chain;
@@ -36,6 +39,9 @@ async function buildEvolution(chain) {
   }
   return evolution;
 }
+
+
+
 
 async function getEvolutionPokemon(name) {
   let cachedPokemon = findLoadedPokemon(name);
