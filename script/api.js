@@ -16,7 +16,6 @@ async function fetchJson(url) {
 }
 
 
-
 /* Load the evolution chain and saves it */
 async function getEvolution(pokemon) {
   if (evolutionCache[pokemon.name]) {
@@ -39,7 +38,6 @@ async function buildEvolution(chain) {
   }
   return evolution;
 }
-
 
 
 

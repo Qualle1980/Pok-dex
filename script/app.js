@@ -48,12 +48,9 @@ function showLoadingSpinner() {
 }
 
 
-
-
 function hideLoadingSpinner() {
   document.getElementById("loadingScreen").style.display = "none";
 }
-
 
 
 function disableLoadButton(disabled) {
