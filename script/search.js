@@ -41,7 +41,12 @@ function renderSearchResult() {
 
 
 function showNotFound() {
-  document.getElementById("pokemonContent").innerHTML = /*html*/ `
-    <p class="notFound" data-id="not-found">No Pokémon found.</p>
-  `;
+  currentPokemon = allPokemon;
+  renderPokemon();
+  document.getElementById("notFoundDialog").showModal();
+}
+
+
+function closeNotFoundDialog() {
+  document.getElementById("notFoundDialog").close();
 }

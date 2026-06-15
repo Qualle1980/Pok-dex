@@ -184,12 +184,21 @@ main {
   }
 }
 
-/* Messages */
-.notFound {
-  width: 100%;
-  padding: 40px;
+/* Not found dialog */
+.notFoundDialog {
+  width: 90%;
+  max-width: 360px;
+  padding: 55px 30px 40px;
   text-align: center;
   font-size: 20px;
+}
+
+.notFoundClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 10px;
+  font-size: 26px;
 }
 
 /* Pokemon detail dialog */
