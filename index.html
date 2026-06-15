@@ -73,7 +73,7 @@
       <div id="dialogContent"></div>
     </dialog>
 
-    <dialog id="notFoundDialog" class="notFoundDialog">
+    <dialog id="notFoundDialog" class="notFoundDialog" onclose="resetNotFoundDialog()">
       <button class="notFoundClose" onclick="closeNotFoundDialog()">×</button>
       <p data-id="not-found">No Pokémon found.</p>
     </dialog>

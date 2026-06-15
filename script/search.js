@@ -43,10 +43,18 @@ function renderSearchResult() {
 function showNotFound() {
   currentPokemon = allPokemon;
   renderPokemon();
+  document.getElementById("pokemonContent").style.display = "none";
   document.getElementById("notFoundDialog").showModal();
+  document.body.style.overflow = "hidden";
 }
 
 
 function closeNotFoundDialog() {
   document.getElementById("notFoundDialog").close();
+}
+
+
+function resetNotFoundDialog() {
+  document.getElementById("pokemonContent").style.display = "flex";
+  unlockPage();
 }
