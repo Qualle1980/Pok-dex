@@ -32,7 +32,15 @@ async function getEvolution(pokemon) {
 async function buildEvolution(chain) {
   let evolution = [];
   let currentStep = chain;
-  while (currentStep) {
+  if (currentStep) {
+    evolution.push(await getEvolutionPokemon(currentStep.species.name));
+    currentStep = currentStep.evolves_to[0];
+  }
+  if (currentStep) {
+    evolution.push(await getEvolutionPokemon(currentStep.species.name));
+    currentStep = currentStep.evolves_to[0];
+  }
+  if (currentStep) {
     evolution.push(await getEvolutionPokemon(currentStep.species.name));
     currentStep = currentStep.evolves_to[0];
   }
