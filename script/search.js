@@ -8,7 +8,6 @@ function checkSearch() {
 }
 
 
-
 function searchWithEnter(event) {
   let searchWord = document.getElementById("searchInput").value;
   if (event.key == "Enter" && searchWord.length >= 3) {
@@ -27,8 +26,6 @@ function searchPokemon() {
 }
 
 
-
-
 function renderSearchResult() {
   if (currentPokemon.length == 0) {
     showNotFound();
@@ -36,8 +33,6 @@ function renderSearchResult() {
     renderPokemon();
   }
 }
-
-
 
 
 function showNotFound() {

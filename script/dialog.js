@@ -44,10 +44,12 @@ function setActiveTab(tab) {
   }
 }
 
+
 function showMainTab() {
   let pokemon = currentPokemon[currentDialogIndex];
   document.getElementById("dialogTabContent").innerHTML = mainTabTemplate(pokemon);
 }
+
 
 function showStatsTab() {
   let pokemon = currentPokemon[currentDialogIndex];
@@ -72,11 +74,13 @@ async function showEvolutionTab() {
   }
 }
 
+
 function showEvolutionLoading() {
   document.getElementById("dialogTabContent").innerHTML = /*html*/ `
     <p class="tabMessage">Loading evolution...</p>
   `;
 }
+
 
 function renderEvolution(evolution) {
   let html = "";
@@ -89,6 +93,7 @@ function renderEvolution(evolution) {
   document.getElementById("dialogTabContent").innerHTML =
     /*html*/ `<div class="evolution">${html}</div>`;
 }
+
 
 function showEvolutionError() {
   document.getElementById("dialogTabContent").innerHTML = /*html*/ `
@@ -126,9 +131,11 @@ function closeDialog() {
   document.getElementById("pokemonDialog").close();
 }
 
+
 function unlockPage() {
   document.body.style.overflow = "auto";
 }
+
 
 function closeDialogOutside(event) {
   if (event.target.id == "pokemonDialog") {

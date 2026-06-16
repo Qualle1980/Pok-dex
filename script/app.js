@@ -48,12 +48,9 @@ function getImage(pokemon) {
 }
 
 
-
-
 async function loadMorePokemon() {
   await loadPokemon(true);
 }
-
 
 
 function showLoadingSpinner() {
@@ -69,7 +66,6 @@ function hideLoadingSpinner() {
 function disableLoadButton(disabled) {
   document.getElementById("loadMoreButton").disabled = disabled;
 }
-
 
 
 function showError() {

@@ -48,7 +48,6 @@ async function buildEvolution(chain) {
 }
 
 
-
 async function getEvolutionPokemon(name) {
   let cachedPokemon = findLoadedPokemon(name);
   if (cachedPokemon) {
