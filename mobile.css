@@ -1,6 +1,81 @@
-/* Mobile layout */
+/* Tablet and mobile layout */
+@media (max-width: 900px), (max-height: 760px) {
+  #pokemonDialog {
+    width: min(100% - 16px, 420px);
+    height: min(92dvh, 700px);
+    max-height: 92dvh;
+    margin: auto;
+    border-radius: 16px;
+  }
+
+  .dialogHeader {
+    padding: 12px 16px;
+  }
+
+  .dialogHeader h2 {
+    font-size: 18px;
+  }
+
+  .closeButton {
+    padding: 3px 8px;
+    font-size: 24px;
+  }
+
+  .dialogImageBox {
+    height: 180px;
+  }
+
+  .dialogTypes {
+    height: 48px;
+    padding: 6px;
+  }
+
+  .dialogTypes .typeIcon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .dialogTypes .typeIcon img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .dialogTabs button {
+    padding: 10px 6px;
+  }
+
+  .evolution {
+    padding: 12px 8px;
+    gap: 4px;
+  }
+
+  .evolutionPokemon {
+    width: 72px;
+  }
+
+  .evolutionPokemon img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .evolutionArrow {
+    font-size: 22px;
+  }
+
+  .tabMessage {
+    padding: 20px 16px;
+  }
+
+  .dialogNavigation {
+    padding: 10px 14px;
+  }
+
+  .dialogNavigation button {
+    padding: 8px 12px;
+  }
+}
+
 @media (max-width: 600px) {
-  /* Header and search */
   .headerContent {
     padding: 20px 0;
     flex-direction: column;
@@ -15,117 +90,101 @@
     min-width: 0;
   }
 
-  /* Pokemon cards */
   .pokemonCard {
     width: 100%;
   }
 
-  /* Pokemon dialog */
   #pokemonDialog {
-    width: 100%;
-    max-width: none;
-    height: 100dvh;
-    max-height: 100dvh;
-    margin: 0;
-    border-radius: 0;
-    overflow: hidden;
-  }
-
-  #dialogContent,
-  #dialogContent > div {
-    height: 100%;
-  }
-
-  #dialogContent > div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .dialogHeader {
-    min-height: 64px;
-    padding: 12px 16px;
-    flex-shrink: 0;
-  }
-
-  .dialogImage {
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 12px);
+    height: min(94dvh, 680px);
+    max-height: 94dvh;
+    border-radius: 14px;
   }
 
   .dialogImageBox {
-    height: 27vh;
-    max-height: 210px;
-    flex-shrink: 0;
-  }
-
-  .dialogTypes {
-    height: 48px;
-    flex-shrink: 0;
-  }
-
-  .dialogTabs {
-    flex-shrink: 0;
+    height: 165px;
   }
 
   .dialogTabs button {
-    padding: 12px 4px;
-  }
-
-  #dialogTabContent {
-    min-height: 0;
-    flex: 1;
-    overflow: hidden;
-  }
-
-  .mainInfo {
-    padding: 12px 20px;
-  }
-
-  .mainInfo p {
-    padding: 8px 0;
-  }
-
-  /* Pokemon stats */
-  .stats {
-    padding: 8px 16px;
-  }
-
-  .stat {
-    padding: 4px 0;
-    font-size: 16px;
-  }
-
-  .stat span {
-    width: 95px;
-  }
-
-  /* Evolution chain */
-  .evolution {
-    min-height: 0;
-    height: 100%;
-    padding: 12px 8px;
-    gap: 3px;
+    padding: 10px 4px;
   }
 
   .evolutionPokemon {
-    width: 65px;
+    width: 64px;
   }
 
   .evolutionPokemon img {
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
+  }
+}
+
+@media (max-height: 520px) {
+  #pokemonDialog {
+    width: min(100% - 8px, 420px);
+    height: min(96dvh, 500px);
+    max-height: 96dvh;
+    border-radius: 12px;
+  }
+
+  .dialogHeader {
+    padding: 8px 14px;
+  }
+
+  .dialogHeader h2 {
+    font-size: 18px;
+  }
+
+  .closeButton {
+    padding: 2px 8px;
+    font-size: 24px;
+  }
+
+  .dialogImageBox {
+    height: 115px;
+  }
+
+  .dialogTypes {
+    height: 40px;
+    padding: 4px;
+  }
+
+  .dialogTypes .typeIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .dialogTypes .typeIcon img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .dialogTabs button {
+    padding: 8px 4px;
+  }
+
+  .evolution {
+    padding: 8px 6px;
+  }
+
+  .evolutionPokemon {
+    width: 54px;
+  }
+
+  .evolutionPokemon img {
+    width: 46px;
+    height: 46px;
   }
 
   .evolutionArrow {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .dialogNavigation {
-    padding: 10px 16px;
-    flex-shrink: 0;
+    padding: 8px 10px;
   }
 
   .dialogNavigation button {
-    padding: 10px 12px;
+    padding: 8px 10px;
   }
 }

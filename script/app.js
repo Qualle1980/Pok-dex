@@ -3,13 +3,18 @@ async function init() {
 }
 
 /* Loads and shows the Pokemon */
-async function loadPokemon() {
+async function loadPokemon(loadMore = false) {
   showLoadingSpinner();
   disableLoadButton(true);
   try {
+    let startIndex = allPokemon.length;
     await fetchPokemon();
     currentPokemon = allPokemon;
-    renderPokemon();
+    if (loadMore) {
+      renderMorePokemon(startIndex);
+    } else {
+      renderPokemon();
+    }
   } catch (error) {
     showError();
   }
@@ -26,6 +31,14 @@ function renderPokemon() {
   }
 }
 
+/* Shows only the new loaded Pokemon cards */
+function renderMorePokemon(startIndex) {
+  let content = document.getElementById("pokemonContent");
+  for (let i = startIndex; i < currentPokemon.length; i++) {
+    content.insertAdjacentHTML("beforeend", pokemonCardTemplate(currentPokemon[i], i));
+  }
+}
+
 function getImage(pokemon) {
   let image = pokemon.sprites.other["official-artwork"].front_default;
   if (image == null) {
@@ -38,7 +51,7 @@ function getImage(pokemon) {
 
 
 async function loadMorePokemon() {
-  await loadPokemon();
+  await loadPokemon(true);
 }
 
 
