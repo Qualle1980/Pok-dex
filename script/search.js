@@ -37,9 +37,11 @@ function searchPokemon() {
   renderSearchResult();
 }
 
+
 function clearSearch() {
   resetSearchState();
 }
+
 
 function updateSearchUi(searchWord) {
   document.getElementById("searchButton").disabled = searchWord.length < 3;
@@ -47,6 +49,7 @@ function updateSearchUi(searchWord) {
   document.getElementById("searchHint").hidden = searchWord.length == 0 || searchWord.length >= 3;
   setLoadMoreVisibility(searchWord.length == 0);
 }
+
 
 function setLoadMoreVisibility(show) {
   let button = document.getElementById("loadMoreButton");
@@ -56,6 +59,7 @@ function setLoadMoreVisibility(show) {
     button.style.display = "none";
   }
 }
+
 
 function resetSearchState() {
   document.getElementById("searchInput").value = "";

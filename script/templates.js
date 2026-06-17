@@ -13,6 +13,7 @@ function pokemonCardTemplate(pokemon, index) {
   `;
 }
 
+
 function cardHeaderTemplate(pokemon) {
   return /*html*/ `
     <div class="cardHeader">
@@ -21,6 +22,7 @@ function cardHeaderTemplate(pokemon) {
     </div>
   `;
 }
+
 
 function typeTemplate(pokemon) {
   let html = "";
@@ -32,6 +34,7 @@ function typeTemplate(pokemon) {
   }
   return html;
 }
+
 
 //#endregion
 
@@ -51,6 +54,7 @@ function dialogTemplate(pokemon) {
   `;
 }
 
+
 function dialogHeaderTemplate(pokemon) {
   return /*html*/ `
     <div class="dialogHeader">
@@ -59,6 +63,7 @@ function dialogHeaderTemplate(pokemon) {
     </div>
   `;
 }
+
 
 function dialogImageTemplate(pokemon) {
   return /*html*/ `
@@ -69,6 +74,7 @@ function dialogImageTemplate(pokemon) {
   `;
 }
 
+
 function dialogTabsTemplate() {
   return /*html*/ `
     <div class="dialogTabs">
@@ -78,6 +84,7 @@ function dialogTabsTemplate() {
     </div>
   `;
 }
+
 
 //#endregion
 
@@ -93,6 +100,7 @@ function mainTabTemplate(pokemon) {
   `;
 }
 
+
 function abilityTemplate(pokemon) {
   let abilities = "";
   for (let i = 0; i < pokemon.abilities.length; i++) {
@@ -104,6 +112,7 @@ function abilityTemplate(pokemon) {
   return abilities;
 }
 
+
 function statsTemplate(pokemon) {
   let html = "";
   for (let i = 0; i < pokemon.stats.length; i++) {
@@ -111,6 +120,7 @@ function statsTemplate(pokemon) {
   }
   return html;
 }
+
 
 function statTemplate(stat) {
   let width = stat.base_stat;
@@ -125,6 +135,7 @@ function statTemplate(stat) {
     </div>
   `;
 }
+
 
 function evolutionTemplate(pokemon) {
   return /*html*/ `
@@ -147,5 +158,6 @@ function dialogNavigationTemplate() {
     </div>
   `;
 }
+
 
 //#endregion

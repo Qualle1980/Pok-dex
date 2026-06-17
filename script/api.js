@@ -9,6 +9,7 @@ async function fetchPokemon() {
   nextPokemonId = lastPokemonId;
 }
 
+
 async function fetchJson(url) {
   let response = await fetch(url);
   let data = await response.json();
@@ -55,6 +56,7 @@ async function getEvolutionPokemon(name) {
   }
   return await fetchJson("https://pokeapi.co/api/v2/pokemon/" + name);
 }
+
 
 function findLoadedPokemon(name) {
   for (let i = 0; i < allPokemon.length; i++) {

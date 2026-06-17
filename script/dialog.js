@@ -9,11 +9,13 @@ function openDialog(index) {
   document.body.style.overflow = "hidden";
 }
 
+
 function renderDialog() {
   let pokemon = currentPokemon[currentDialogIndex];
   document.getElementById("dialogContent").innerHTML = dialogTemplate(pokemon);
   showDialogTab(currentDialogTab);
 }
+
 
 //#endregion
 
@@ -30,6 +32,7 @@ function showDialogTab(tab) {
     showEvolutionTab();
   }
 }
+
 
 function setActiveTab(tab) {
   document.getElementById("mainTab").className = "";
@@ -57,6 +60,7 @@ function showStatsTab() {
     <div class="stats">${statsTemplate(pokemon)}</div>
   `;
 }
+
 
 //#endregion
 
@@ -101,6 +105,7 @@ function showEvolutionError() {
   `;
 }
 
+
 //#endregion
 
 //#region Dialog Navigation
@@ -114,6 +119,7 @@ function showPreviousPokemon() {
   renderDialog();
 }
 
+
 function showNextPokemon() {
   currentDialogIndex++;
   if (currentDialogIndex == currentPokemon.length) {
@@ -122,6 +128,7 @@ function showNextPokemon() {
   currentDialogTab = "main";
   renderDialog();
 }
+
 
 //#endregion
 
