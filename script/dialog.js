@@ -9,13 +9,13 @@ function openDialog(index) {
   document.body.style.overflow = "hidden";
 }
 
-
 function renderDialog() {
   let pokemon = currentPokemon[currentDialogIndex];
-  document.getElementById("dialogContent").innerHTML = dialogTemplate(pokemon);
+  let type = getMainType(pokemon);
+  let typeIconsHtml = getTypeIconsHtml(pokemon);
+  document.getElementById("dialogContent").innerHTML = dialogTemplate(pokemon, type, typeIconsHtml);
   showDialogTab(currentDialogTab);
 }
-
 
 //#endregion
 
@@ -33,7 +33,6 @@ function showDialogTab(tab) {
   }
 }
 
-
 function setActiveTab(tab) {
   document.getElementById("mainTab").className = "";
   document.getElementById("statsTab").className = "";
@@ -47,20 +46,41 @@ function setActiveTab(tab) {
   }
 }
 
-
 function showMainTab() {
   let pokemon = currentPokemon[currentDialogIndex];
-  document.getElementById("dialogTabContent").innerHTML = mainTabTemplate(pokemon);
+  let abilitiesText = getAbilityText(pokemon);
+  document.getElementById("dialogTabContent").innerHTML = mainTabTemplate(pokemon, abilitiesText);
 }
-
 
 function showStatsTab() {
   let pokemon = currentPokemon[currentDialogIndex];
-  document.getElementById("dialogTabContent").innerHTML = /*html*/ `
-    <div class="stats">${statsTemplate(pokemon)}</div>
-  `;
+  let statsHtml = getStatsHtml(pokemon);
+  document.getElementById("dialogTabContent").innerHTML = statsTemplate(statsHtml);
 }
 
+function getAbilityText(pokemon) {
+  let abilities = "";
+  for (let i = 0; i < pokemon.abilities.length; i++) {
+    if (i > 0) {
+      abilities += ", ";
+    }
+    abilities += pokemon.abilities[i].ability.name;
+  }
+  return abilities;
+}
+
+function getStatsHtml(pokemon) {
+  let html = "";
+  for (let i = 0; i < pokemon.stats.length; i++) {
+    let stat = pokemon.stats[i];
+    let width = stat.base_stat;
+    if (width > 100) {
+      width = 100;
+    }
+    html += statTemplate(stat.stat.name, stat.base_stat, width);
+  }
+  return html;
+}
 
 //#endregion
 
@@ -78,33 +98,29 @@ async function showEvolutionTab() {
   }
 }
 
-
 function showEvolutionLoading() {
   document.getElementById("dialogTabContent").innerHTML = /*html*/ `
     <p class="tabMessage">Loading evolution...</p>
   `;
 }
 
-
 function renderEvolution(evolution) {
   let html = "";
   for (let i = 0; i < evolution.length; i++) {
     html += evolutionTemplate(evolution[i]);
     if (i < evolution.length - 1) {
-      html += /*html*/ `<span class="evolutionArrow">»</span>`;
+      html += /*html*/ `<span class="evolutionArrow">&raquo;</span>`;
     }
   }
   document.getElementById("dialogTabContent").innerHTML =
     /*html*/ `<div class="evolution">${html}</div>`;
 }
 
-
 function showEvolutionError() {
   document.getElementById("dialogTabContent").innerHTML = /*html*/ `
     <p class="tabMessage">Evolution could not be loaded.</p>
   `;
 }
-
 
 //#endregion
 
@@ -119,7 +135,6 @@ function showPreviousPokemon() {
   renderDialog();
 }
 
-
 function showNextPokemon() {
   currentDialogIndex++;
   if (currentDialogIndex == currentPokemon.length) {
@@ -129,7 +144,6 @@ function showNextPokemon() {
   renderDialog();
 }
 
-
 //#endregion
 
 //#region Dialog Closing
@@ -138,11 +152,9 @@ function closeDialog() {
   document.getElementById("pokemonDialog").close();
 }
 
-
 function unlockPage() {
   document.body.style.overflow = "auto";
 }
-
 
 function closeDialogOutside(event) {
   if (event.target.id == "pokemonDialog") {

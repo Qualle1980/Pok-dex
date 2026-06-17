@@ -1,18 +1,15 @@
 //#region Pokemon Card Templates
 
-
 /* HTML for one Pokemon card */
-function pokemonCardTemplate(pokemon, index) {
-  let type = pokemon.types[0].type.name;
+function pokemonCardTemplate(pokemon, index, type, typeIconsHtml) {
   return /*html*/ `
     <button class="pokemonCard ${type}" data-id="card" onclick="openDialog(${index})">
       ${cardHeaderTemplate(pokemon)}
       <img class="pokemonImage" data-id="card-image" src="${getImage(pokemon)}" alt="${pokemon.name}">
-      <div class="types">${typeTemplate(pokemon)}</div>
+      <div class="types">${typeIconsHtml}</div>
     </button>
   `;
 }
-
 
 function cardHeaderTemplate(pokemon) {
   return /*html*/ `
@@ -23,30 +20,24 @@ function cardHeaderTemplate(pokemon) {
   `;
 }
 
-
-function typeTemplate(pokemon) {
-  let html = "";
-  for (let i = 0; i < pokemon.types.length; i++) {
-    let type = pokemon.types[i].type.name;
-    html += /*html*/ `<span class="typeIcon ${type}" title="${type}">
+function typeTemplate(type) {
+  return /*html*/ `
+    <span class="typeIcon ${type}" title="${type}">
       <img src="assets/icons/types/${type}.svg" alt="${type}">
-    </span>`;
-  }
-  return html;
+    </span>
+  `;
 }
-
 
 //#endregion
 
 //#region Dialog Base Templates
 
 /* HTML for the detail  */
-function dialogTemplate(pokemon) {
-  let type = pokemon.types[0].type.name;
+function dialogTemplate(pokemon, type, typeIconsHtml) {
   return /*html*/ `
     <div class="${type}" data-id="overlay-pokemon-name">
       ${dialogHeaderTemplate(pokemon)}
-      ${dialogImageTemplate(pokemon)}
+      ${dialogImageTemplate(pokemon, typeIconsHtml)}
       ${dialogTabsTemplate()}
       <div id="dialogTabContent"></div>
       ${dialogNavigationTemplate()}
@@ -54,26 +45,23 @@ function dialogTemplate(pokemon) {
   `;
 }
 
-
 function dialogHeaderTemplate(pokemon) {
   return /*html*/ `
     <div class="dialogHeader">
       <h2>#${pokemon.id} ${pokemon.name}</h2>
-      <button class="closeButton" data-id="close-dialog-button" onclick="closeDialog()">×</button>
+      <button class="closeButton" data-id="close-dialog-button" onclick="closeDialog()">&times;</button>
     </div>
   `;
 }
 
-
-function dialogImageTemplate(pokemon) {
+function dialogImageTemplate(pokemon, typeIconsHtml) {
   return /*html*/ `
     <div class="dialogImageBox">
       <img class="dialogImage" data-id="dialog-image" src="${getImage(pokemon)}" alt="${pokemon.name}">
     </div>
-    <div class="types dialogTypes">${typeTemplate(pokemon)}</div>
+    <div class="types dialogTypes">${typeIconsHtml}</div>
   `;
 }
-
 
 function dialogTabsTemplate() {
   return /*html*/ `
@@ -85,57 +73,35 @@ function dialogTabsTemplate() {
   `;
 }
 
-
 //#endregion
 
 //#region Dialog Content Templates
 
-function mainTabTemplate(pokemon) {
+function mainTabTemplate(pokemon, abilitiesText) {
   return /*html*/ `
     <div class="mainInfo">
       <p><span>Height</span><strong>${pokemon.height / 10} m</strong></p>
       <p><span>Weight</span><strong>${pokemon.weight / 10} kg</strong></p>
-      <p><span>Abilities</span><strong>${abilityTemplate(pokemon)}</strong></p>
+      <p><span>Abilities</span><strong>${abilitiesText}</strong></p>
     </div>
   `;
 }
 
-
-function abilityTemplate(pokemon) {
-  let abilities = "";
-  for (let i = 0; i < pokemon.abilities.length; i++) {
-    if (i > 0) {
-      abilities += ", ";
-    }
-    abilities += pokemon.abilities[i].ability.name;
-  }
-  return abilities;
+function statsTemplate(statsHtml) {
+  return /*html*/ `
+    <div class="stats">${statsHtml}</div>
+  `;
 }
 
-
-function statsTemplate(pokemon) {
-  let html = "";
-  for (let i = 0; i < pokemon.stats.length; i++) {
-    html += statTemplate(pokemon.stats[i]);
-  }
-  return html;
-}
-
-
-function statTemplate(stat) {
-  let width = stat.base_stat;
-  if (width > 100) {
-    width = 100;
-  }
+function statTemplate(statName, statValue, width) {
   return /*html*/ `
     <div class="stat">
-      <span>${stat.stat.name}</span>
+      <span>${statName}</span>
       <div class="statBar"><div style="width: ${width}%"></div></div>
-      <strong>${stat.base_stat}</strong>
+      <strong>${statValue}</strong>
     </div>
   `;
 }
-
 
 function evolutionTemplate(pokemon) {
   return /*html*/ `
@@ -153,11 +119,10 @@ function evolutionTemplate(pokemon) {
 function dialogNavigationTemplate() {
   return /*html*/ `
     <div class="dialogNavigation">
-      <button data-id="prev-button" onclick="showPreviousPokemon()">← Previous</button>
-      <button data-id="next-button" onclick="showNextPokemon()">Next →</button>
+      <button data-id="prev-button" onclick="showPreviousPokemon()">&larr; Previous</button>
+      <button data-id="next-button" onclick="showNextPokemon()">Next &rarr;</button>
     </div>
   `;
 }
-
 
 //#endregion
