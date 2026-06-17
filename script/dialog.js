@@ -5,7 +5,7 @@ function openDialog(index) {
   currentDialogIndex = index;
   currentDialogTab = "main";
   renderDialog();
-  document.getElementById("pokemonDialog").showModal();
+  document.getElementById("pokemonDialog").show();
   document.body.style.overflow = "hidden";
 }
 

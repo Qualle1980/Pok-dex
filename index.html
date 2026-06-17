@@ -26,22 +26,37 @@
         </div>
 
         <div class="search">
-          <input
-            id="searchInput"
-            data-id="search-input"
-            type="text"
-            placeholder="Search Pokémon"
-            oninput="checkSearch()"
-            onkeydown="searchWithEnter(event)"
-          />
-          <button
-            id="searchButton"
-            data-id="search-button"
-            onclick="searchPokemon()"
-            disabled
-          >
-            &#128269;
-          </button>
+          <div class="searchControls">
+            <input
+              id="searchInput"
+              data-id="search-input"
+              type="text"
+              autocomplete="off"
+              placeholder="Search Pokémon"
+              oninput="checkSearch()"
+              onkeydown="searchWithEnter(event)"
+            />
+            <button
+              id="clearSearchButton"
+              class="clearSearchButton"
+              type="button"
+              onclick="clearSearch()"
+              aria-label="Clear search"
+              title="Clear search"
+              hidden
+            >
+              &#128465;
+            </button>
+            <button
+              id="searchButton"
+              data-id="search-button"
+              onclick="searchPokemon()"
+              disabled
+            >
+              &#128269;
+            </button>
+          </div>
+          <span id="searchHint" class="searchHint" hidden>Min. 3 characters</span>
         </div>
       </div>
     </header>

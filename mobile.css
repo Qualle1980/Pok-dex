@@ -1,6 +1,68 @@
 /* Tablet and mobile layout */
+@media (max-width: 1024px) and (min-width: 601px) {
+  .headerContent {
+    width: 92%;
+    gap: 20px;
+  }
+
+  .brand h1 {
+    font-size: 26px;
+  }
+
+  .logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .search input {
+    width: 150px;
+    padding: 10px;
+  }
+
+  .searchControls {
+    justify-content: flex-end;
+  }
+
+  .clearSearchButton {
+    min-width: 0;
+    padding: 10px 10px;
+    font-size: 16px;
+  }
+
+  .search button {
+    width: 44px;
+    padding: 8px;
+    font-size: 18px;
+  }
+
+  main {
+    width: 92%;
+  }
+
+  .pokemonContent {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .pokemonCard {
+    width: min(280px, calc(50% - 12px));
+  }
+
+  #dialogContent > div {
+    width: min(80vw, 760px);
+    max-width: none;
+    height: min(88dvh, 860px);
+    max-height: 88dvh;
+    border-radius: 18px;
+  }
+
+  .dialogImageBox {
+    height: 280px;
+  }
+}
+
 @media (max-width: 900px), (max-height: 760px) {
-  #pokemonDialog {
+  #dialogContent > div {
     width: min(100% - 16px, 420px);
     height: min(92dvh, 700px);
     max-height: 92dvh;
@@ -45,17 +107,21 @@
   }
 
   .evolution {
-    padding: 12px 8px;
-    gap: 4px;
+    padding: 12px 10px;
+    gap: 6px;
   }
 
   .evolutionPokemon {
-    width: 72px;
+    width: 84px;
   }
 
   .evolutionPokemon img {
-    width: 64px;
-    height: 64px;
+    width: 68px;
+    height: 68px;
+  }
+
+  .evolutionPokemon span {
+    font-size: 16px;
   }
 
   .evolutionArrow {
@@ -76,6 +142,10 @@
 }
 
 @media (max-width: 600px) {
+  #pokemonDialog {
+    padding: 0;
+  }
+
   .headerContent {
     padding: 20px 0;
     flex-direction: column;
@@ -83,22 +153,53 @@
 
   .search {
     width: 100%;
+    align-items: stretch;
+  }
+
+  .searchControls {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 6px;
   }
 
   .search input {
-    width: 100%;
+    flex: 1;
+    width: auto;
+    max-width: none;
     min-width: 0;
+    padding: 10px;
+  }
+
+  .clearSearchButton {
+    width: 64px;
+    min-width: 64px;
+    height: 44px;
+    padding: 0;
+    font-size: 20px;
+  }
+
+  #searchButton {
+    width: 64px;
+    min-width: 64px;
+    height: 44px;
+    padding: 0;
+    font-size: 18px;
+  }
+
+  .searchHint {
+    font-size: 14px;
   }
 
   .pokemonCard {
     width: 100%;
   }
 
-  #pokemonDialog {
-    width: calc(100% - 12px);
-    height: min(94dvh, 680px);
-    max-height: 94dvh;
-    border-radius: 14px;
+  #dialogContent > div {
+    width: 100%;
+    max-width: none;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
   }
 
   .dialogImageBox {
@@ -110,17 +211,21 @@
   }
 
   .evolutionPokemon {
-    width: 64px;
+    width: 78px;
   }
 
   .evolutionPokemon img {
-    width: 58px;
-    height: 58px;
+    width: 62px;
+    height: 62px;
+  }
+
+  .evolutionPokemon span {
+    font-size: 16px;
   }
 }
 
 @media (max-height: 520px) {
-  #pokemonDialog {
+  #dialogContent > div {
     width: min(100% - 8px, 420px);
     height: min(96dvh, 500px);
     max-height: 96dvh;
@@ -165,15 +270,21 @@
 
   .evolution {
     padding: 8px 6px;
+    gap: 3px;
   }
 
   .evolutionPokemon {
-    width: 54px;
+    width: 58px;
   }
 
   .evolutionPokemon img {
     width: 46px;
     height: 46px;
+  }
+
+  .evolutionPokemon span {
+    margin-top: 6px;
+    font-size: 14px;
   }
 
   .evolutionArrow {

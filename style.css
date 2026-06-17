@@ -8,6 +8,9 @@ body {
 
 /* Header */
 header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   background-color: #0b2d38;
   border-bottom: 1px solid #214751;
 }
@@ -40,6 +43,14 @@ header {
 
 .search {
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.searchControls {
+  display: flex;
+  align-items: center;
   gap: 8px;
 }
 
@@ -52,10 +63,26 @@ header {
   background-color: white;
 }
 
+.clearSearchButton {
+  min-width: 70px;
+}
+
 .search button {
   width: 48px;
   padding: 10px;
   font-size: 20px;
+}
+
+.clearSearchButton {
+  width: auto;
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+.searchHint {
+  min-height: 24px;
+  font-size: 16px;
+  color: #ffd36f;
 }
 
 /* Buttons */
@@ -206,33 +233,62 @@ main {
 }
 
 /* Pokemon detail dialog */
-dialog {
-  width: 90%;
-  max-width: 420px;
-  height: min(95dvh, 760px);
-  max-height: 95dvh;
-  margin: auto;
-  border-radius: 18px;
-  color: white;
-  background-color: #0b2d38;
+#pokemonDialog {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: hidden;
-}
-
-dialog::backdrop {
+  width: 100vw;
+  height: 100dvh;
+  margin: 0;
+  padding: 20px;
+  border: none;
   background-color: rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  z-index: 1500;
 }
 
-#dialogContent,
-#dialogContent > div {
+#pokemonDialog[open] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#notFoundDialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  border: none;
+  border-radius: 18px;
+  color: white;
+  background-color: #0b2d38;
+  z-index: 1600;
+}
+
+#dialogContent {
+  width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #dialogContent > div {
+  width: 90%;
+  max-width: 420px;
+  height: min(95dvh, 760px);
+  max-height: 95dvh;
+  border-radius: 18px;
+  color: white;
+  background-color: #0b2d38;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -393,6 +449,8 @@ dialog::backdrop {
 
 .evolutionPokemon span {
   display: block;
+  margin-top: 8px;
+  line-height: 1.2;
   font-weight: bold;
 }
 
